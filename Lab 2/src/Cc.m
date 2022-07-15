@@ -1,0 +1,9 @@
+clear;
+N = 1000;
+alpha = 0.5;
+d = DTS(0 : 4000, [1 zeros(1, 4000)]);
+her = d.filter([1], [1 zeros(1, N - 1) alpha]);
+DTS.Figures("v", ...
+    struct("xlabel", "n", "ylabel", "h_{er}[n]", "grid", "on", "ylim", [-1 1]), ...
+    { her.sInf("h_{er}[n]") } ...
+);
